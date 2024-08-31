@@ -1,10 +1,21 @@
 import mongoose from "mongoose";
 const schema = mongoose.Schema(
 	{
-		id: { type: String,  maxlength: 50 },
-		name: {type: String,required: true,unique: true,},
-	   
-			
+		id: {
+			type: mongoose.Schema.Types.ObjectId,
+			auto: true,
+		},
+		
+		name: {
+			type: String,
+			unique: true
+		},
+			description: { type: String, default: '' }, 
+			status: { 
+			  type: String, 
+			  enum: ['active', 'inactive'], 
+			  default: 'active' 
+			},
 			
 		  
 	},
