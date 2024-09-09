@@ -6,6 +6,7 @@ import {  GenreController,} from "../controllers/index.js";
 const router = express.Router();
 router.post('/', validate(GenreValidationSchema.add), GenreController.create);
 router.get('/getall',authenticate, GenreController.getAll);
+router.get('/names', GenreController.getAllGenreNames);
 router.get('/:id',authenticate, GenreController.getById);
 router.get('/:id/series', GenreController.getGenreSeries);
 router.get('/:id/series/seasons', GenreController.getGenreSeriesSeasons);

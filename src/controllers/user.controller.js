@@ -5,9 +5,7 @@ import bcrypt from "bcryptjs"
 
 export const UserController = {
   register: async (req, res) => {
-
-    
-    try {
+  try {
       
       const data = await UserService.register(req.body);
       return httpResponse.CREATED(res, data);
@@ -19,7 +17,7 @@ export const UserController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      console.log('Login attempt with:', { email, password }); // Log input data
+      console.log('Login attempt with:', { email, password }); 
   
       const user = await UserService.login(email);
       if (!user) {
@@ -34,7 +32,7 @@ export const UserController = {
       const token = jwt.sign(
         { id: user._id, email: user.email },
         process.env.JWT_SECRET, 
-        { expiresIn: '1h' }    
+        { expiresIn: '4h' }    
       );
       res.status(200).json({ token });
   

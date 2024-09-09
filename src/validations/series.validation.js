@@ -13,20 +13,26 @@ export const SeriesValidationSchema = {
                 'string.empty': 'Description cannot be an empty field',
                 'any.required': 'Description is a required field'
             }),
-            trailerId: Joi.string().required().messages({
-                'string.base': 'Trailer ID should be a type of string',
-                'string.empty': 'Trailer ID cannot be an empty field',
-                'any.required': 'Trailer ID is a required field'
+            status: Joi.string().valid('active', 'inactive').optional() .messages({
+                
+                'string.empty': 'Status cannot be an empty field',
+                
             }),
-            thumbnailId: Joi.string().required().messages({
-                'string.base': 'Thumbnail ID should be a type of string',
-                'string.empty': 'Thumbnail ID cannot be an empty field',
-                'any.required': 'Thumbnail ID is a required field'
-            }),
-            genres: Joi.array().items(Joi.string()).required().messages({
+           // trailerId: Joi.string().required().messages({
+              //  'string.base': 'Trailer ID should be a type of string',
+               // 'string.empty': 'Trailer ID cannot be an empty field',
+                //'any.required': 'Trailer ID is a required field'
+          //  }),
+           // thumbnailId: Joi.string().required().messages({
+                //'string.base': 'Thumbnail ID should be a type of string',
+               // 'string.empty': 'Thumbnail ID cannot be an empty field',
+               // 'any.required': 'Thumbnail ID is a required field'
+           // }),
+            genres: Joi.array().items(Joi.string()).messages({
                 'array.base': 'Genres should be an array of strings',
                 'any.required': 'Genres are required'
             })
+            
         })
     }
 };

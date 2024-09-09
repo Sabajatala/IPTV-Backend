@@ -1,12 +1,16 @@
 import mongoose from 'mongoose';
 
 const Schema = new mongoose.Schema({
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    trailerId: { type: mongoose.Schema.Types.ObjectId, ref: 'File', required: true }, 
-    thumbnailId: { type: mongoose.Schema.Types.ObjectId, ref: 'File', required: true }, 
-    genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }], 
     
+	id: {type: mongoose.Schema.Types.ObjectId,auto: true,},
+    name: { type: String,  },
+    description: { type: String,default: ''  },
+    //trailerId: { type: mongoose.Schema.Types.ObjectId, ref: 'File', }, 
+    //thumbnailId: { type: mongoose.Schema.Types.ObjectId, ref: 'File',  }, 
+    // genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }], 
+     genres: [{ type: String }],
+    status: { type: String, enum: ['active', 'inactive'], default: 'active'},
+  
 },
 { timestamps: true }
 );
